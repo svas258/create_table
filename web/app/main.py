@@ -1,11 +1,8 @@
-from flask import Flask
 from flask import request
 from flask import render_template
 import psycopg2
 from app import app
 import os
-
-#app = Flask(__name__)
 
 
 @app.route('/script')
@@ -32,9 +29,5 @@ def create_table():
                 return "Table: "+table_name+" created successfully"
       except Exception as e:
              return str(e)
-
-
-#if __name__ == '__main__':
-#    app.run(host='0.0.0.0', debug = True, port = 5005) 
 	
 
