@@ -1,0 +1,4 @@
+FLASK==1.1.4
+psycopg2_binary==2.8.6
+flask_restful
+uwsgi
