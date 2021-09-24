@@ -8,7 +8,7 @@ import os
 #app = Flask(__name__)
 
 
-@app.route('/')
+@app.route('/script')
 def application():
      return render_template('index.html')
 
