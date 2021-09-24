@@ -1,0 +1,41 @@
+version: '3.7'
+services:
+    web:
+      build:
+        context: ./web
+        dockerfile: Dockerfile_web
+      container_name: web
+      restart: always
+      expose:
+         - 8080        
+      networks:
+          - db_ne
+          - web_ne
+      depends_on:
+         - db
+    db:
+        build:
+          context: .
+          dockerfile: Dockerfile_DB
+        networks:
+          - db_ne
+        volumes:
+          - "dbstore:/var/lib/postgresql/data"
+
+    nginx:
+        build: 
+          context: ./nginx
+          dockerfile: Dockerfile_ng 
+        container_name: nginx
+        restart: always
+        ports:
+           - "9000:80"
+        networks:
+             - web_ne
+networks:
+   db_ne:
+     driver: bridge
+   web_ne:
+     driver: bridge
+volumes:
+    dbstore:

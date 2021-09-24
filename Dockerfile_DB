@@ -1,0 +1,6 @@
+FROM postgres
+ENV POSTGRES_PASSWORD Test@1234
+ENV POSTGRES_DB postgres
+
+
+
